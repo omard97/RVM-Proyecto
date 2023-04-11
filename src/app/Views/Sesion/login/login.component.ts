@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {  FormControl, Validators } from '@angular/forms';
+import { BackenApiService } from 'src/app/Services/backen-api.service';
 
 @Component({
   selector: 'app-login',
@@ -8,6 +9,14 @@ import {  FormControl, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
+  /* ---- Loguear usuario */
+  userLogCtrl = new FormControl('', [Validators.required,Validators.minLength(4)]);
+  pasworLogCtrl = new FormControl('', [Validators.required,Validators.minLength(4)]);
+
+
+
+
+  /*------ Registrar Usuario ------ */
   nombreCtrl= new FormControl('', [Validators.required,Validators.minLength(4)]);
   apellidoCtrl= new FormControl('', [Validators.required,Validators.minLength(4)]);
   telefonoCtrl= new FormControl('', [Validators.required,Validators.minLength(6)]);
@@ -17,11 +26,35 @@ export class LoginComponent implements OnInit {
   correoCtrl=new FormControl('', [Validators.required,Validators.email]);
   usuarioCtrl= new FormControl('', [Validators.required,Validators.minLength(4)]);
 
-  constructor() { }
+  constructor(private service: BackenApiService ) { }
 
   
 
   ngOnInit(): void { }
+
+
+
+  /* ----- Login ----- */
+
+  validarUsuario(){
+    var usuarioLogeado = {
+      email: this.userLogCtrl.value,
+      password: this.pasworLogCtrl.value,
+    };
+    debugger
+    this.service.getValidacionUsuario(usuarioLogeado.email, usuarioLogeado.password).subscribe(
+      (data) =>{
+        console.log('el usuario se logueo con exito')
+        console.log(data)
+      },
+      (error) => {
+        console.log('Hubo un problema y el usuario no se logueo con exito')
+        console.error(error);
+        
+      }
+    )
+
+  }
 
 
 

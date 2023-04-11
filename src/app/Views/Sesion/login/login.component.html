@@ -52,7 +52,7 @@
             <div class="row">
 
               <div class="col-12">
-                <input id="iconoUsuario" type="text" class="form__input" placeholder="@   e-mail">
+                <input id="iconoUsuario" [formControl]="userLogCtrl" type="text" class="form__input" placeholder="@   e-mail">
 
                 <!-- <span>
                         <small id="mensajeUser"
@@ -66,7 +66,7 @@
 
               <div class="col-12">
 
-                <input id="iconoContrasenia" type="password" class="form__input" placeholder="  Password">
+                <input id="iconoContrasenia" [formControl]="pasworLogCtrl" type="password" class="form__input" placeholder="  Password">
                 <!--  <span>
                         <small id="mensajeUser">
                           <i class="fa fa-times fa-2x"></i>
@@ -78,7 +78,7 @@
             </div>
             <div class="row">
               <div class="col col-12">
-                <button type="button" class="btn boton">Iniciar Sesión</button>
+                <button type="button" class="btn boton" (click)="validarUsuario()">Iniciar Sesión</button>
               </div>
             </div>
 
