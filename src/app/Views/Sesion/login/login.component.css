@@ -65,7 +65,14 @@ body {
     border-radius: 10px;
 }
 
-/* ---------- */
+/* registro */
+
+.registro:hover{
+  cursor: pointer;
+  
+}
+
+/* ---------- login ------- */
 
 
 .company_title {
@@ -165,7 +172,7 @@ body {
     border-radius: 4px;
   }
   
-  .btn {
+  .boton {
     transition: all 0.5s ease;
     width: 70%;
     border-radius: 30px;
@@ -177,8 +184,8 @@ body {
     margin-bottom: 1em;
   }
   
-  .btn:hover,
-  .btn:focus {
+  .boton:hover,
+  .boton:focus {
     background-color: #505e6e;
     color: #fff;
   }
@@ -198,15 +205,29 @@ body {
   
   #iconoUsuario {
     font-family: "Font Awesome 5 Free";
-    font-weight: 600;
+    font-weight: 500;
   
     font-size: 18px;
   
   }
   
   #iconoContrasenia {
+   /*  font-family: sans-serif;
+    font-weight: 400;
+    font-size: 16px; */
+
     font-family: "Font Awesome 5 Free";
-    font-weight: 600;
+    font-weight: 500;
     font-size: 18px;
+   
   
   }
+
+  /* ------ Modal Registro ---- */
+
+.inputModal{
+  margin: 1rem 0 1rem 0;
+}
+.inputModal:last-of-type{
+  margin:1rem 0 2rem 0;
+}
