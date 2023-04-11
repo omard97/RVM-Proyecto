@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-registro',
@@ -8,10 +8,7 @@ import { FormControl, Validators } from '@angular/forms';
 })
 export class RegistroComponent implements OnInit {
 
-  nombreCtrl = new FormControl('', [Validators.required]);
-  usuarioCtrl = new FormControl('', [Validators.required]);
-  correoCtrl = new FormControl('', [Validators.required]);
-  celularCtrl = new FormControl('', [Validators.required]);
+
   contraseniaCtrl = new FormControl('', [
     Validators.required,
     Validators.minLength(8),
@@ -23,9 +20,22 @@ export class RegistroComponent implements OnInit {
 
   banderaAlerta: boolean = true;
   banderaContrasenia: boolean = false;
+
+  usuario!: FormGroup;
+
   constructor() { }
 
   ngOnInit(): void {
+    this.usuario = new FormGroup({
+      nombreCtrl: new FormControl('', [Validators.required]),
+      apellidoCtrl: new FormControl('', [Validators.required]),
+      celularCtrl: new FormControl('', [Validators.required]),
+      contraseniaCtrl: new FormControl('', [Validators.required]),
+      contraseniaRepetidaCtrl: new FormControl('', [Validators.required]),
+      dniCtrl: new FormControl('', [Validators.required]),
+      correoCtrl: new FormControl('', [Validators.required,Validators.email]),
+      usuarioCtrl: new FormControl('', [Validators.required]),
+    });
   }
 
 }

@@ -63,3 +63,23 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
     color: #ffffff !important;
     border-radius: 10px;
 }
+
+/* Formulario de registro */
+
+.contenedor{
+    height: 50vh;
+    margin: 5%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    border: 2px solid #c7c7c7 ;
+}
+
+.formulario{
+    padding: 2rem;
+    border: 2px solid #c7c7c7 ;
+    background-color: #f0f8ff;
+    width: 50%;
+}
