@@ -68,10 +68,10 @@ export class BackenApiService {
   }
 
 
-  /* Pantalla Login (registro de usuario) */
-  postUsuario(usuario: any ):Observable<any>{
+  /* Pantalla Login (registro de usuario) - utilizado en el servicio de registro */
+ /*  postUsuario(usuario: any ):Observable<any>{
     return this.http.post('https://localhost:44363/usuario', usuario, this.httpOptions);
-  }
+  } */
 
   /* Post inicio sesion - se registra el logueo del usuario */
   postInicioSesionUsuario(usuarioLogueado: any):Observable<any>{
