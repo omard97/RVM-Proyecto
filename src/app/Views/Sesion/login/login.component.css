@@ -47,23 +47,35 @@ body {
 
 .nav-item {
     transition: background-color .3s ease;
-    padding: 0.5rem;
-    margin: 0;
+    padding: 0.2rem;
+    margin: 0 0.1rem 0 0.1rem;
+    border-radius: 10px;
 }
 
 /* color texto enlaces */
 .nav-link {
     color: #c7c7c7 !important;
+    border-radius: 10px;
 }
 
 /* Color fondo de lo enlaces al pasar sobre el enlace  */
 .nav-item:hover,
-.nav-link:hover {
+.navbar__botones--activo
+/* .nav-link:hover */ {
     cursor: pointer;
-    background-color: #1f1f1f !important;
-    color: #ffffff !important;
-    border-radius: 10px;
+    background-color: #b64900 !important; /*   #1f1f1f*/
+    color: #120808!important;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
+   
 }
+
+/* botones navbar */
+.navbar__botones{
+  margin-right: 2rem;
+}
+
+
+
 
 /* registro */
 
