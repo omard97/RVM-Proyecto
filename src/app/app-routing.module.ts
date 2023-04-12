@@ -5,7 +5,7 @@ import { LoginComponent } from './Views/Sesion/login/login.component';
 import { RegistroComponent } from './Views/Sesion/registro/registro.component';
 
 const routes: Routes = [
-
+  {path: '',component:HomeComponent},
   {path: 'home',component:HomeComponent},/* al inicial el proyecto */
   {path: 'login',component:LoginComponent},
   {path: 'registro', component:RegistroComponent}
