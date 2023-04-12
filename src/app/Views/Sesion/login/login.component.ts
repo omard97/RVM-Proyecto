@@ -27,8 +27,10 @@ export class LoginComponent implements OnInit {
   
   constructor(private service: LoginApiService, private serviceRegistro:RegistroApiService ) { }
 
+  /*------ Banderas ------ */
   banderaContrasenia:boolean=false; /* bandera para habilitar el boton de registrarme */
   banderaAlerta:boolean=false;
+  banderaAlertaRegistro : boolean=false; /* Avisa que el usuario a sigo registrado con exito */
 
   ngOnInit(): void { }
 
@@ -86,18 +88,28 @@ export class LoginComponent implements OnInit {
         ID_Perfil: 3, /* usuario */
         ID_Estado: 10,/* activo */
       }
+      this.vaciarFormulario();
 
-      this.serviceRegistro.postRegistrarUsuario(usuario).subscribe(
+    /*   this.serviceRegistro.postRegistrarUsuario(usuario).subscribe(
         (data) => {
           alert('Usuario registrado: ' + data)
+          this.banderaAlertaRegistro
         },
         (error) =>{
           alert('ocurrio un error al registarr el usuario: ' + error)
         }
-      )
+      ) */
     }
     
-  }
-  
+  } /* registararUsuario */
 
+  vaciarFormulario(){
+    this.nombreCtrl.reset();
+    this.apellidoCtrl.reset();
+    this.telefonoCtrl.reset();
+    this.dniCtrl.reset();
+    this.usuarioCtrl.reset();
+    this.correoCtrl.reset();
+    this.contraseniaCtrl.reset();
+  }
 }
