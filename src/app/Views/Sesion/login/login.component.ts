@@ -4,6 +4,8 @@ import { LoginApiService } from 'src/app/Services/Login/login-api.service';
 import { RegistroApiService } from 'src/app/Services/Registro/registro-api.service';
 import { BackenApiService } from 'src/app/Services/backen-api.service';
 
+
+declare function notificacionRegistro():void;
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -25,7 +27,17 @@ export class LoginComponent implements OnInit {
   correoCtrl=new FormControl('', [Validators.required]);
   usuarioCtrl= new FormControl('', [Validators.required]);
   
-  constructor(private service: LoginApiService, private serviceRegistro:RegistroApiService ) { }
+
+  myScriptElement: HTMLScriptElement;
+
+
+  constructor(private service: LoginApiService, private serviceRegistro:RegistroApiService ) { 
+
+   this.myScriptElement=document.createElement("script");
+   this.myScriptElement.src = "src/assets/js/notificacion-registro.js"
+   document.body.appendChild(this.myScriptElement);
+
+  }
 
   /*------ Banderas ------ */
   banderaContrasenia:boolean=false; /* bandera para habilitar el boton de registrarme */
@@ -89,6 +101,7 @@ export class LoginComponent implements OnInit {
         ID_Estado: 10,/* activo */
       }
       this.vaciarFormulario();
+      
 
     /*   this.serviceRegistro.postRegistrarUsuario(usuario).subscribe(
         (data) => {
@@ -111,5 +124,9 @@ export class LoginComponent implements OnInit {
     this.usuarioCtrl.reset();
     this.correoCtrl.reset();
     this.contraseniaCtrl.reset();
+  }
+
+  notificacion(){
+    
   }
 }
