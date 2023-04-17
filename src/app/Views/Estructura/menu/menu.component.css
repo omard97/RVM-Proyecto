@@ -18,6 +18,7 @@ a:hover{
 .boton__nav {
     width: 100%;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .boton__nav--info {
@@ -62,8 +63,12 @@ a:hover{
     width: 100%;
      margin-bottom: 1rem;
 }
+.boton_usuario:hover{
+    cursor: pointer;
+}
 .menu__usuario{
     border-radius: 10px;
+    
 }
 .dropdown-item{
     border-radius: 5px;
@@ -87,10 +92,14 @@ a:hover{
 .bi-geo-alt{
     font-size: calc(1.275rem + .3vw)!important;
 }
-.bi-calendar3{
+.bi-calendar3,
+.bi-journal-arrow-up{
     font-size: calc(1.1rem + .3vw)!important;
     margin-right: 10px;
+    
 }
+
+
 
 /* Botones secundarios del menu o sub menu */
 

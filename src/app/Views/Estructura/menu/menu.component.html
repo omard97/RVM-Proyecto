@@ -2,14 +2,14 @@
     <div class="row flex-nowrap">
         <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 nav__menu">
             <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
-                <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                <a routerLink="menu" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
                     <span class="fs-5 d-none d-sm-inline">Menu</span>
                 </a>
                 <ul class="nav nav-pills flex-column mb-sm-auto col-12 align-items-center align-items-sm-start"
                     id="menu">
                     <li class="nav-item boton__nav">
 
-                        <a href="#" class="nav-link align-middle px-0 boton__nav--info">
+                        <a  class="nav-link align-middle px-0 boton__nav--info">
                             <i class="fs-4 bi-house"></i> <span
                                 class="ms-1 d-none d-sm-inline boton__nav--span">Home</span>
                         </a>
@@ -44,7 +44,12 @@
 
                         <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
                             <li class="w-100">
-                                <a href="#" class="nav-link px-4 boton__subMenu" ><i class="bi bi-calendar3"></i><span
+                                <a class="nav-link px-4 boton__subMenu" ><i class="bi bi-journal-arrow-up"></i><span
+                                        class="d-none d-sm-inline">Nuevo Reclamo</span>
+                                </a>
+                            </li>
+                            <li class="w-100">
+                                <a class="nav-link px-4 boton__subMenu" ><i class="bi bi-calendar3"></i><span
                                         class="d-none d-sm-inline">Historial</span>
                                 </a>
                             </li>
@@ -55,7 +60,7 @@
                         </ul>
                     </li>
                     <li class="boton__nav">
-                        <a href="#" class="nav-link px-0 align-middle boton__nav--info">
+                        <a  class="nav-link px-0 align-middle boton__nav--info">
                             <i class="bi bi-geo-alt"></i> <span
                                 class="ms-1 d-none d-sm-inline boton__nav--span">Mapas</span></a>
                     </li>
@@ -96,8 +101,8 @@
 
 
 
-                <div class="dropdown pb-4 ">
-                    <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle "
+                <div class="dropdown pb-4 boton_usuario ">
+                    <a class="d-flex align-items-center text-white text-decoration-none dropdown-toggle "
                         id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                         <img src="https://github.com/mdo.png" alt="hugenerd" width="30" height="30"
                             class="rounded-circle">
@@ -106,13 +111,13 @@
                     <ul class="dropdown-menu dropdown-menu-dark text-small shadow menu__usuario"
                         aria-labelledby="dropdownUser1">
 
-                        <li><a class="dropdown-item" href="#"><i class="bi bi-gear-fill"></i>Configuración</a></li>
+                        <li><a class="dropdown-item" ><i class="bi bi-gear-fill"></i>Configuración</a></li>
                         <li><a class="dropdown-item" routerLink="./perfil" routerLinkActive="active"><i
                                     class="bi bi-person"></i>Perfil</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="#" style="color:rgb(215, 15, 15)">Cerrar Sesión</a></li>
+                        <li><a class="dropdown-item" style="color:rgb(215, 15, 15)" routerLink="">Cerrar Sesión</a></li>
                     </ul>
                 </div>
             </div>
