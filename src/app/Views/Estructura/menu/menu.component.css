@@ -1,0 +1,105 @@
+/* span,i,a{
+    color: white!important;
+} */
+
+/* #0d6efd */
+
+/* span:hover,
+i:hover
+a:hover{
+    color: #0d6efd!important;
+    transition: all 0.2s ease;
+} */
+
+.nav__menu{
+    background-color: #1f1f1f;
+}
+
+.boton__nav {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.boton__nav--info {
+    margin-left: 10px;
+    color: rgb(207, 207, 207) !important;
+}
+.boton__nav--span{
+    padding-left: 5px;
+}
+
+.boton__nav:hover {
+    background-color: #333333;
+    transition: all 0.5s ease;
+}
+.boton__nav--info:hover {
+    color: #f1f1f1 !important;
+}
+
+@media (max-width: 573px) {
+    /* cuando la pantalla tiene un tamaño de 0 px y 573px */
+    .boton__nav {
+        width: 4rem;
+        border-radius: 10px;
+        text-align: center;
+    }
+
+    .boton__nav--info {
+        margin-left: 0;
+        color: rgb(207, 207, 207) !important;
+    }
+
+    .boton__nav:hover {
+        background-color: #333333;
+        transition: all 0.5s ease;
+    }
+    .boton__nav--info:hover {
+        color: #f1f1f1 !important;
+    }
+}
+
+.lineaDivisora{
+    width: 100%;
+     margin-bottom: 1rem;
+}
+.menu__usuario{
+    border-radius: 10px;
+}
+.dropdown-item{
+    border-radius: 5px;
+}
+.dropdown-item:hover{
+
+    transition: all 1s ease;
+    
+
+}
+
+/* Iconos perfil */
+
+.bi-gear-fill,
+.bi-person{
+    padding-right: 5px;
+}
+
+/* Iconos menu */
+.bi-journal-text,
+.bi-geo-alt{
+    font-size: calc(1.275rem + .3vw)!important;
+}
+.bi-calendar3{
+    font-size: calc(1.1rem + .3vw)!important;
+    margin-right: 10px;
+}
+
+/* Botones secundarios del menu o sub menu */
+
+.boton__subMenu{
+    color: rgb(207, 207, 207) !important;
+}
+.boton__subMenu:hover{
+    color: #f1f1f1 !important;
+}
+
+
+
