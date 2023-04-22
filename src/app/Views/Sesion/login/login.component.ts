@@ -26,10 +26,6 @@ export class LoginComponent implements OnInit {
   correoCtrl=new FormControl('', [Validators.required]);
   usuarioCtrl= new FormControl('', [Validators.required]);
   
-  
-
-
-
 
   constructor(private service: LoginApiService, private serviceRegistro: RegistroApiService,  private router: Router ) {}
 

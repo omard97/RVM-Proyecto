@@ -1,4 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { MenuApiService } from 'src/app/Services/Menu/menu-api.service';
 
 @Component({
   selector: 'app-menu',
@@ -7,12 +9,30 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
  
+  idUsuario:any;
 
-  constructor() { 
+  constructor( private service:MenuApiService, private _route:ActivatedRoute) { 
+
+    this.idUsuario = this._route.snapshot.paramMap.get('id');
+    
+    this.getRolUsuario();
+  }
+
+  ngOnInit():void {
     
   }
 
-  ngOnInit(): void {
+  getRolUsuario(){
+    this.service.getRolUsuario(this.idUsuario).subscribe(
+      (data) =>{
+        console.log('datos del usuario: ',data)
+      },
+      (error) => {
+        
+        console.error(error);
+        
+      }
+    )
   }
 
 }

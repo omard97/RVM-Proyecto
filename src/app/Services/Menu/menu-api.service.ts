@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { rolUsuario } from 'src/app/Model/Menu/rolUsuario';
 
 @Injectable({
   providedIn: 'root'
@@ -13,4 +14,11 @@ export class MenuApiService {
   };
 
   constructor(private http:HttpClient) { }
+
+
+
+  getRolUsuario(idUsuario:any): Observable<any> {
+      
+    return this.http.get<rolUsuario[]>('https://localhost:44363/V_rolUsuario/'+idUsuario);
+  }
 }
