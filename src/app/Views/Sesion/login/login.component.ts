@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {  FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { LoginApiService } from 'src/app/Services/Login/login-api.service';
 import { RegistroApiService } from 'src/app/Services/Registro/registro-api.service';
-import { BackenApiService } from 'src/app/Services/backen-api.service';
 
 
-declare function notificacionRegistro():void;
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -27,38 +26,37 @@ export class LoginComponent implements OnInit {
   correoCtrl=new FormControl('', [Validators.required]);
   usuarioCtrl= new FormControl('', [Validators.required]);
   
+  
 
-  myScriptElement: HTMLScriptElement;
 
 
-  constructor(private service: LoginApiService, private serviceRegistro:RegistroApiService ) { 
 
-   this.myScriptElement=document.createElement("script");
-   this.myScriptElement.src = "src/assets/js/notificacion-registro.js"
-   document.body.appendChild(this.myScriptElement);
-
-  }
+  constructor(private service: LoginApiService, private serviceRegistro: RegistroApiService,  private router: Router ) {}
 
   /*------ Banderas ------ */
   banderaContrasenia:boolean=false; /* bandera para habilitar el boton de registrarme */
   banderaAlerta:boolean=false;
   banderaAlertaRegistro : boolean=false; /* Avisa que el usuario a sigo registrado con exito */
 
+  listUsuariodata:any;
   ngOnInit(): void { }
 
   /* ----- Login ----- */
-
   validarUsuario(){
     var usuarioLogeado = {
       email: this.userLogCtrl.value,
       password: this.pasworLogCtrl.value,
     };
-    debugger
+   
     this.service.getValidacionUsuario(usuarioLogeado.email, usuarioLogeado.password).subscribe(
       (data) =>{
         console.log('el usuario se logueo con exito')
         console.log(data)
-        alert('usuario logueado con el servicio de login')
+
+        this.listUsuariodata = data;
+        console.log('Informacion usuario: ', this.listUsuariodata[0].idUser)
+        
+        this.router.navigate(['menu',this.listUsuariodata[0].idUser]); /* this.router.navigate(['main-nav', data[0].idUser]); */
       },
       (error) => {
         console.log('Hubo un problema y el usuario no se logueo con exito')
@@ -83,6 +81,7 @@ export class LoginComponent implements OnInit {
     }
   }
 
+  /* ----- Modal Registrar usuario --- */
   registrarUsuario(){
     debugger
     if(this.nombreCtrl.invalid || this.apellidoCtrl.invalid || this.telefonoCtrl.invalid || this.dniCtrl.invalid|| this.usuarioCtrl.invalid || this.correoCtrl.invalid || this.contraseniaCtrl.invalid || this.confirmacionCtrl.invalid || this.banderaContrasenia==false){
@@ -103,7 +102,7 @@ export class LoginComponent implements OnInit {
       this.vaciarFormulario();
       
 
-    /*   this.serviceRegistro.postRegistrarUsuario(usuario).subscribe(
+      this.serviceRegistro.postRegistrarUsuario(usuario).subscribe(
         (data) => {
           alert('Usuario registrado: ' + data)
           this.banderaAlertaRegistro
@@ -111,7 +110,7 @@ export class LoginComponent implements OnInit {
         (error) =>{
           alert('ocurrio un error al registarr el usuario: ' + error)
         }
-      ) */
+      )
     }
     
   } /* registararUsuario */
@@ -126,7 +125,5 @@ export class LoginComponent implements OnInit {
     this.contraseniaCtrl.reset();
   }
 
-  notificacion(){
-    
-  }
+  
 }

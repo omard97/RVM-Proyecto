@@ -223,25 +223,23 @@ body {
     width: 600px;
   }
   
-  #iconoUsuario {
+/*   #iconoUsuario {
     font-family: "Font Awesome 5 Free";
     font-weight: 500;
   
     font-size: 18px;
   
-  }
+  } */
   
-  #iconoContrasenia {
+  /* #iconoContrasenia { */
    /*  font-family: sans-serif;
     font-weight: 400;
     font-size: 16px; */
 
-    font-family: "Font Awesome 5 Free";
+    /* font-family: "Font Awesome 5 Free";
     font-weight: 500;
-    font-size: 18px;
-   
-  
-  }
+    font-size: 18px; */
+
 
   /* ------ Modal Registro ---- */
 
