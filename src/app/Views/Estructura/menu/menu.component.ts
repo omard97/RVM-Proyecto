@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MenuApiService } from 'src/app/Services/Menu/menu-api.service';
 
 @Component({
@@ -17,8 +17,9 @@ export class MenuComponent implements OnInit {
     idRol: 0,
     rol: ''
   }
+ 
 
-  constructor(private service: MenuApiService, private _route: ActivatedRoute) {
+  constructor(private service: MenuApiService, private _route: ActivatedRoute, private _router:Router) {
 
     this.idUsuario = this._route.snapshot.paramMap.get('id');
 
@@ -30,28 +31,19 @@ export class MenuComponent implements OnInit {
   }
 
   getRolUsuario() {
-
-
-
     this.service.getRolUsuario(this.idUsuario).subscribe(
       (data) => {
-
-        
           this.usuario.idUsuario= data[0].idUsuario,
           this.usuario.nick= data[0].nick,
           this.usuario.idRol = data[0].idRol,
           this.usuario.rol=data[0].rol
-        
-        
-
-        
       },
       (error) => {
-
         console.error(error);
-
       }
     )
   }
 
+  /*  ------- Botones Menu ------ */
+ 
 }
