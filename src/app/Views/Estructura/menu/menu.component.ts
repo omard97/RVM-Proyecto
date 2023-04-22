@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MenuApiService } from 'src/app/Services/Menu/menu-api.service';
 
@@ -8,29 +8,48 @@ import { MenuApiService } from 'src/app/Services/Menu/menu-api.service';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
- 
-  idUsuario:any;
 
-  constructor( private service:MenuApiService, private _route:ActivatedRoute) { 
+  idUsuario: any;
+
+  usuario = {
+    idUsuario: 0,
+    nick: '',
+    idRol: 0,
+    rol: ''
+  }
+
+  constructor(private service: MenuApiService, private _route: ActivatedRoute) {
 
     this.idUsuario = this._route.snapshot.paramMap.get('id');
-    
+
     this.getRolUsuario();
   }
 
-  ngOnInit():void {
-    
+  ngOnInit(): void {
+
   }
 
-  getRolUsuario(){
+  getRolUsuario() {
+
+
+
     this.service.getRolUsuario(this.idUsuario).subscribe(
-      (data) =>{
-        console.log('datos del usuario: ',data)
+      (data) => {
+
+        
+          this.usuario.idUsuario= data[0].idUsuario,
+          this.usuario.nick= data[0].nick,
+          this.usuario.idRol = data[0].idRol,
+          this.usuario.rol=data[0].rol
+        
+        
+
+        
       },
       (error) => {
-        
+
         console.error(error);
-        
+
       }
     )
   }
