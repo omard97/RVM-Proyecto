@@ -95,12 +95,11 @@ export class BackenApiService {
     return this.http.get<sesionUsuario[]>('https://localhost:44363/sesion?'+"email="+email+"&"+"password="+pass); 
   } */
 
-  /*Obtener los datos del usuario segun el ID*/
-  getdatosPerfil(id:any): Observable<datosperfil[]>{
+  /*Obtener los datos del usuario segun el ID - se utiliza directamente en el servicio de perfil*/
+/*   getdatosPerfil(id:any): Observable<datosperfil[]>{
     console.log(id)
-    //
     return this.http.get<datosperfil[]>('https://localhost:44363/usuario/' + id);
-  }
+  } */
 
   metodoEditar(perfil:datosperfil){
     //console.log(id)
