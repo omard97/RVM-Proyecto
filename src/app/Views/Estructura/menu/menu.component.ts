@@ -31,17 +31,20 @@ export class MenuComponent implements OnInit {
   }
 
   getRolUsuario() {
-    this.service.getRolUsuario(this.idUsuario).subscribe(
-      (data) => {
-          this.usuario.idUsuario= data[0].idUsuario,
-          this.usuario.nick= data[0].nick,
-          this.usuario.idRol = data[0].idRol,
-          this.usuario.rol=data[0].rol
-      },
-      (error) => {
-        console.error(error);
-      }
-    )
+    if(this.idUsuario>0){
+      this.service.getRolUsuario(this.idUsuario).subscribe(
+        (data) => {
+            this.usuario.idUsuario= data[0].idUsuario,
+            this.usuario.nick= data[0].nick,
+            this.usuario.idRol = data[0].idRol,
+            this.usuario.rol=data[0].rol
+        },
+        (error) => {
+          console.error(error);
+        }
+      )
+    }
+    
   }
 
   /*  ------- Botones Menu ------ */
