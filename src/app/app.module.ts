@@ -11,6 +11,9 @@ import { RegistroComponent } from './Views/Sesion/registro/registro.component';
 import { MenuComponent } from './Views/Estructura/menu/menu.component';
 import { PerfilComponent } from './Views/Usuario/perfil/perfil.component';
 import { DashboardComponent } from './Views/Dashboard/dashboard/dashboard.component';
+import { ReclamoComponent } from './Views/Reclamo/reclamo/reclamo.component';
+import { HistorialComponent } from './Views/Reclamo/historial/historial.component';
+import { MapasComponent } from './Views/Mapas/mapas/mapas.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,10 @@ import { DashboardComponent } from './Views/Dashboard/dashboard/dashboard.compon
     RegistroComponent,
     MenuComponent,
     PerfilComponent,
-    DashboardComponent
+    DashboardComponent,
+    ReclamoComponent,
+    HistorialComponent,
+    MapasComponent
   ],
   imports: [
     BrowserModule,

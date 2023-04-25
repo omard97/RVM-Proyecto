@@ -6,6 +6,8 @@ import { RegistroComponent } from './Views/Sesion/registro/registro.component';
 import { MenuComponent } from './Views/Estructura/menu/menu.component';
 import { PerfilComponent } from './Views/Usuario/perfil/perfil.component';
 import { DashboardComponent } from './Views/Dashboard/dashboard/dashboard.component';
+import { ReclamoComponent } from './Views/Reclamo/reclamo/reclamo.component';
+import { HistorialComponent } from './Views/Reclamo/historial/historial.component';
 
 const routes: Routes = [
   {path: '',component:HomeComponent},
@@ -17,6 +19,9 @@ const routes: Routes = [
     children: [
       {path: 'perfil',component:PerfilComponent},
       {path: 'dashboard',component:DashboardComponent},
+      {path: 'reclamo',component:ReclamoComponent},
+      {path: 'historial',component:HistorialComponent},
+      {path: 'mapa',component:HistorialComponent},
     ] 
   }
   
