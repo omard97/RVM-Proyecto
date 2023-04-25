@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { idInicioSesionUsuario } from 'src/app/Model/InicioSesion';
 import { sesionUsuario } from 'src/app/Model/sesion';
 
 @Injectable({
@@ -21,4 +22,13 @@ export class LoginApiService {
       
       return this.http.get<sesionUsuario[]>('https://localhost:44363/sesion?'+"email="+email+"&"+"password="+pass); /* email=example@hotmail.com&password=123'); */
     }
+    /* traer el id de sesion y utilizarlo para crear el reclamo */
+    getSesionUsuarioLogueado(idUsuario:number):Observable<idInicioSesionUsuario[]>{
+      return this.http.get<idInicioSesionUsuario[]>('https://localhost:44363/V_ultimaSesionDelUsuario/'+idUsuario);
+    }
+
+    /* Post inicio sesion - se registra el logueo del usuario */
+  postInicioSesionUsuario(usuarioLogueado: any):Observable<any>{
+    return this.http.post('https://localhost:44363/sesion', usuarioLogueado, this.httpOptions);
+  }
 }
