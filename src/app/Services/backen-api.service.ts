@@ -54,7 +54,7 @@ export class BackenApiService {
 
   
  
-
+  /* se trasladora a los servicios correspondientes */
   getReclamoAmbiental(): Observable<ReclamoAmbiental[]> {
     return this.http.get<ReclamoAmbiental[]>('https://localhost:44363/reclamoambiental');
   }
@@ -79,12 +79,9 @@ export class BackenApiService {
   }
 
   // getPerfil( usuario : any ): Observable<any>{
-    
   //   console.log(usuario);
   //   return this.http.get('http://localhost:4200/usuario' , usuario);
-
   // }
-  
 
   /* Pantalla sesion - validar usuario - transferido al servicio de login */
   /* getValidacionUsuario(email:any, pass:any): Observable<any> {
@@ -126,8 +123,7 @@ export class BackenApiService {
   }
 
  
-
-  //********* Metodos HISTORIAL **********
+  // ---------------------------------- Metodos HISTORIAL---------------------------------- 
 
   // GET
   getTipoReclamo(): Observable<TipoReclamo[]> {
