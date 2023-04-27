@@ -29,6 +29,7 @@ export class ReclamoComponent implements OnInit {
   reclamoAmbientalCtrl = new FormControl('', [Validators.required]);
   marcaAutoCtrl = new FormControl('', [Validators.required]);
   modeloAutoCtrl = new FormControl('', [Validators.required]);
+  colorAutoCtrl = new FormControl('', [Validators.required]);
   fechaCtrl = new FormControl('', [Validators.required]);
   horaCtrl = new FormControl('', [Validators.required]);
   ubicacionCtrl = new FormControl('', [Validators.required]);
@@ -304,7 +305,7 @@ export class ReclamoComponent implements OnInit {
     /* segundo el vehiculo */
     var RegistroVehiculo: Vehiculo = {
       dominio: this.dominioCtrl.value + '',
-      color: ' - ',
+      color: this.colorAutoCtrl.value+'',
       numeroChasis: ' - ',
       numeroMotor: ' - ',
       ID_MarcaVehiculo: Number(this.selectIdMarcaVehiculo),

@@ -61,6 +61,7 @@ table {
   margin-top: 20px;
 }
 
+
 .titulos {
   font-size: 18px;
 }
@@ -72,10 +73,15 @@ table {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 
 }
-
-.inputs {
-  /* border-color: brown; */
+.input_reclamo{
+  margin: 0.5rem 0 0.9rem 0;
 }
+.icono__input{
+  font-size: 16px;
+}
+/* .inputs {
+  border-color: brown;
+} */
 
 #Alerta {
   margin-top: 20px;
