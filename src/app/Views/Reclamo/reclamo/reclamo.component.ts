@@ -135,7 +135,7 @@ export class ReclamoComponent implements OnInit {
     this.serviceLogin.getSesionUsuarioLogueado(this.usuario.idUsuario).subscribe(
       (data)=>{
         
-        this.usuario.idUsuario=data[0].idSesion;
+        this.usuario.IDsesion=data[0].idSesion;
         
       }
     )
@@ -223,13 +223,13 @@ export class ReclamoComponent implements OnInit {
     } else {
       var RegistroRecl: Reclamo = {
         fecha: this.fechaCtrl.value + '',
-        foto: this.urlFotoCtrl.value + '',
+        foto: this.urlFotoCtrl.value + '', /* cambiar por el input file */
         hora: this.horaCtrl.value + '',
-        ID_Sesion: Number(this.usuario.idUsuario),
+        ID_Sesion: Number(this.usuario.IDsesion),
         ID_TipoReclamo: Number(this.selectIdTipoReclamo),
         ID_Estado: 1 /* estado Activo */,
       };
-
+      debugger
       /* si es vial que se agrege el estado pendiente de vial sino queda en 1 para el ambiental */
       if (this.selectIdTipoReclamo == 2) {
         RegistroRecl.ID_Estado = 5;
@@ -241,10 +241,8 @@ export class ReclamoComponent implements OnInit {
       
       this.service.postReclamo(RegistroRecl).subscribe(
         (res) => {
-          
-          this.registrarDetalleReclamo(
-            res
-          ); /* metodo para registrar el detalle */
+          debugger
+          this.registrarDetalleReclamo(res); /* metodo para registrar el detalle */
         },
         (err) => console.error(err)
       );
@@ -252,10 +250,10 @@ export class ReclamoComponent implements OnInit {
   }
 
   registrarDetalleReclamo(infoRec: any) {
-    ;
+    
     if (this.validacionTipoReclamo == 1) {
       /* Si es ambiental */
-      ;
+      
       var RegistroDetReclamo: DetalleReclamo = {
         descripcion: this.descripcionCtrl.value + '',
         direccion: this.ubicacionCtrl.value + '',
@@ -266,7 +264,7 @@ export class ReclamoComponent implements OnInit {
         ID_Reclamo: infoRec.idReclamo,
       };
 
-      ;
+      debugger
       this.service.postDetalleReclamo(RegistroDetReclamo).subscribe(
         (res) => {
           this.Notificacion();
@@ -276,7 +274,7 @@ export class ReclamoComponent implements OnInit {
         (err) => console.error(err)
       );
     } else {
-      ;
+      
       /* Cuando sea Vehicular */
       /* Primero el detalle de reclamo */
       var RegistroDetReclamo: DetalleReclamo = {
