@@ -229,7 +229,7 @@ export class ReclamoComponent implements OnInit {
         ID_TipoReclamo: Number(this.selectIdTipoReclamo),
         ID_Estado: 1 /* estado Activo */,
       };
-      debugger
+      
       /* si es vial que se agrege el estado pendiente de vial sino queda en 1 para el ambiental */
       if (this.selectIdTipoReclamo == 2) {
         RegistroRecl.ID_Estado = 5;
@@ -241,7 +241,7 @@ export class ReclamoComponent implements OnInit {
       
       this.service.postReclamo(RegistroRecl).subscribe(
         (res) => {
-          debugger
+          
           this.registrarDetalleReclamo(res); /* metodo para registrar el detalle */
         },
         (err) => console.error(err)
@@ -264,7 +264,7 @@ export class ReclamoComponent implements OnInit {
         ID_Reclamo: infoRec.idReclamo,
       };
 
-      debugger
+      
       this.service.postDetalleReclamo(RegistroDetReclamo).subscribe(
         (res) => {
           this.Notificacion();
