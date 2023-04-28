@@ -59,7 +59,6 @@ export class HistorialComponent implements OnInit {
 
     this.rutaURL = window.location.pathname.split('/');
     this.usuario.idUsuario = this.rutaURL[2];
-    debugger
     this.getRolUsuario();
     this.fechadehoy();
     this.getTipoReclamo();
@@ -77,7 +76,7 @@ export class HistorialComponent implements OnInit {
             this.usuario.nick= data[0].nick,
             this.usuario.idRol = data[0].idRol,
             this.usuario.rol=data[0].rol
-            debugger
+            
             this.getIDSesionUsuarioLogueado(); /* de esos datos utilizo el idUsuario para obtener el id de sesion */
         },
         (error) => {
@@ -124,7 +123,7 @@ export class HistorialComponent implements OnInit {
         }
       );
     } else {
-      debugger
+     
       this.detalleReclamo.getHistorialHoy(this.fecha,this.IDUsuario,1,5,this.usuario.idRol).subscribe( /* getDetalleReclamoUsuario(this.IDUsuario, 1) */
         (info) => {
           
@@ -201,7 +200,7 @@ export class HistorialComponent implements OnInit {
   }
 
   btnBuscarReclamosFiltrados() {
-    debugger
+    
     //NOTA: si busco todos los reclamos de ambiental tengo que hacer una nueva funcion para ese mismo estado, solamente es (23/02/2022)
     var filtroIDTReclamo: any;
     var filtroIDEstadoReclamo: any;
@@ -348,7 +347,7 @@ export class HistorialComponent implements OnInit {
       } */
 
     } else if(this.usuario.idRol==3)  {
-      debugger
+      
       filtroIDTReclamo = this.selectIDTipReclamo;
       filtroIDEstadoReclamo = this.selectIDEstadoReclamo;
       filtroFechaInicio = this.fechaDesdeCtrl.value;
@@ -357,7 +356,7 @@ export class HistorialComponent implements OnInit {
       /* Filtro los reclamos por el tipo y el estado pero sin fecha */
       if ((this.tipoReclamoCtrl.value !='' && this.estadoReclamoCtrl.value!='') && this.fechaDesdeCtrl.value=='') {
     
-        debugger
+        
         this.detalleReclamo
           .getDetalleReclamoFiltradoUsuario(filtroIDTReclamo,filtroIDEstadoReclamo,this.usuario.idRol,this.IDUsuario)
           .subscribe(
@@ -367,7 +366,7 @@ export class HistorialComponent implements OnInit {
               this.banderaIconoCarga =false; /* No se visualiza */
               this.banderaAlerta=false;/* No se visualiza */
               this.Dreclamos = res;
-              debugger
+              
               console.log(this.Dreclamos);
               if (res.length == 0) {
                 this.banderaAlerta=true;
@@ -380,7 +379,7 @@ export class HistorialComponent implements OnInit {
 
           /* Filtro los reclamos por el tipo y el estado pero con fecha */
       }else if ((this.tipoReclamoCtrl.value !='' && this.estadoReclamoCtrl.value!='') && this.fechaDesdeCtrl.value!=''){
-        debugger
+        
         this.detalleReclamo.getDetalleReclamoPorfechaDelUsuario(filtroIDTReclamo,filtroIDEstadoReclamo,this.fechaDesdeCtrl.value+'',this.usuario.idRol,this.IDUsuario)
           .subscribe(
             (res) => {
@@ -416,7 +415,7 @@ export class HistorialComponent implements OnInit {
   }
 
   fechadehoy(){
-    debugger
+    
     /* Fecha del fia de hoy, para mostrar los reclamos del este día */
     /* var today = new Date();
     var mes;

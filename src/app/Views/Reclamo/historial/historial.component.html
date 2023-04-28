@@ -12,9 +12,9 @@
       <!--     <div class="col-md-4">
   
       </div> -->
-      <div id="tituloFiltros" class="col col-sm-12">
+    <!--   <div id="tituloFiltros" class="col col-sm-12">
         <h4>Filtros</h4>
-      </div>
+      </div> -->
   
     </div>
   
@@ -25,7 +25,7 @@
   
           <h5>Tipo de Reclamo</h5>
           <div class="seleccionFiltros">
-            <select class="form-select d-inline-block border border-dark rounded-3" data-bs-toggle="tooltip"
+            <select class="form-select d-inline-block " data-bs-toggle="tooltip"
               data-bs-placement="top" title="Tipo de Reclamo" placeholder="Clic para abrir"
               (change)="obtenerIDTipoReclamo($event)" aria-label="" [formControl]="tipoReclamoCtrl">
               <!-- Default select example -->
@@ -41,7 +41,7 @@
   
           <h5>Estado</h5>
           <div class="seleccionFiltros">
-            <select class="form-select d-inline-block border border-dark rounded-3" data-bs-toggle="tooltip"
+            <select class="form-select" data-bs-toggle="tooltip"
               data-bs-placement="top" title="Estado de Reclamo" aria-label="" (change)="obtenerIDEstadoReclamo($event)"
               [formControl]="estadoReclamoCtrl">
               <option value="" disabled> --- Estado no selecionado --- </option>
@@ -58,7 +58,7 @@
           <div class="row">
             <div class="col">
               <h5>Fecha Inicio</h5>
-              <input id="Fecha" class="calendario d-inline-block border border-dark rounded-3" data-bs-toggle="tooltip"
+              <input id="Fecha" class="calendario" data-bs-toggle="tooltip"
                 data-bs-placement="top" title="Fecha Inicio" name="name" type="date" placeholder="Fecha"
                 [formControl]="fechaDesdeCtrl">
             </div>
@@ -193,7 +193,7 @@
     <div class="container-fluid">
   
       <div class="row">
-        <div *ngFor="let item of Dreclamos " class="col-12 col-md-6 col-lg-4 col-xl-3 col-xxl-4 ">
+        <div *ngFor="let item of Dreclamos " class="col-12 col-md-6 col-lg-4 col-xl-3 col-xxl-3 ">
   
           <div class="card shadow-lg p-3 mb-5 rounded border border-3 ">
             <!-- shadow-lg p-3 mb-5 rounded border border-3 -->
