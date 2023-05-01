@@ -100,7 +100,7 @@ export class HistorialComponent implements OnInit {
   getDetalleReclamosHoy() {
     
     if (this.usuario.idRol == 1 || this.usuario.idRol == 2) {
-      this.detalleReclamo.getHistorialHoy(this.fecha,this.IDUsuario,1,5,this.usuario.idRol).subscribe(
+      this.detalleReclamo.getHistorialHoy(this.fecha,this.usuario.idUsuario,1,5,this.usuario.idRol).subscribe(
         (info) => {
           console.log(info);
 
@@ -124,7 +124,7 @@ export class HistorialComponent implements OnInit {
       );
     } else {
      
-      this.detalleReclamo.getHistorialHoy(this.fecha,this.IDUsuario,1,5,this.usuario.idRol).subscribe( /* getDetalleReclamoUsuario(this.IDUsuario, 1) */
+      this.detalleReclamo.getHistorialHoy(this.fecha,this.usuario.idUsuario,1,5,this.usuario.idRol).subscribe( /* getDetalleReclamoUsuario(this.IDUsuario, 1) */
         (info) => {
           
           this.banderaIconoCarga=false;
@@ -190,7 +190,7 @@ export class HistorialComponent implements OnInit {
 
     this.router.navigate([
       'main-nav',
-      this.IDUsuario,
+      this.usuario.idUsuario,
       this.usuario.idRol,
       this.IDSesion,
       'historial',
@@ -347,7 +347,7 @@ export class HistorialComponent implements OnInit {
       } */
 
     } else if(this.usuario.idRol==3)  {
-      
+      debugger
       filtroIDTReclamo = this.selectIDTipReclamo;
       filtroIDEstadoReclamo = this.selectIDEstadoReclamo;
       filtroFechaInicio = this.fechaDesdeCtrl.value;
@@ -355,10 +355,11 @@ export class HistorialComponent implements OnInit {
       /* Filtro por usuario */
       /* Filtro los reclamos por el tipo y el estado pero sin fecha */
       if ((this.tipoReclamoCtrl.value !='' && this.estadoReclamoCtrl.value!='') && this.fechaDesdeCtrl.value=='') {
-    
+  
+        debugger
         
         this.detalleReclamo
-          .getDetalleReclamoFiltradoUsuario(filtroIDTReclamo,filtroIDEstadoReclamo,this.usuario.idRol,this.IDUsuario)
+          .getDetalleReclamoFiltradoUsuario(filtroIDTReclamo,filtroIDEstadoReclamo,this.usuario.idRol,this.usuario.idUsuario)
           .subscribe(
             (res) => {
               this.formTarjetas.reset();
@@ -380,7 +381,7 @@ export class HistorialComponent implements OnInit {
           /* Filtro los reclamos por el tipo y el estado pero con fecha */
       }else if ((this.tipoReclamoCtrl.value !='' && this.estadoReclamoCtrl.value!='') && this.fechaDesdeCtrl.value!=''){
         
-        this.detalleReclamo.getDetalleReclamoPorfechaDelUsuario(filtroIDTReclamo,filtroIDEstadoReclamo,this.fechaDesdeCtrl.value+'',this.usuario.idRol,this.IDUsuario)
+        this.detalleReclamo.getDetalleReclamoPorfechaDelUsuario(filtroIDTReclamo,filtroIDEstadoReclamo,this.fechaDesdeCtrl.value+'',this.usuario.idRol,this.usuario.idUsuario)
           .subscribe(
             (res) => {
               this.formTarjetas.reset();
