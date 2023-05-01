@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MenuApiService } from 'src/app/Services/Menu/menu-api.service';
+import { Observable } from 'rxjs';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { map, shareReplay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-menu',
@@ -8,6 +11,11 @@ import { MenuApiService } from 'src/app/Services/Menu/menu-api.service';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
+  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
+  .pipe(
+    map(result => result.matches),
+    shareReplay()
+  );
 
   idUsuario: any;
 
@@ -19,7 +27,7 @@ export class MenuComponent implements OnInit {
   }
  
 
-  constructor(private service: MenuApiService, private _route: ActivatedRoute, private _router:Router) {
+  constructor(private breakpointObserver: BreakpointObserver,private service: MenuApiService, private _route: ActivatedRoute, private _router:Router) {
 
     this.idUsuario = this._route.snapshot.paramMap.get('id');
 

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -14,8 +14,14 @@ import { DashboardComponent } from './Views/Dashboard/dashboard/dashboard.compon
 import { ReclamoComponent } from './Views/Reclamo/reclamo/reclamo.component';
 import { HistorialComponent } from './Views/Reclamo/historial/historial.component';
 import { MapasComponent } from './Views/Mapas/mapas/mapas.component';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+/* Angular material */
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
 @NgModule({
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA],
   declarations: [
     AppComponent,
     HomeComponent,
@@ -33,7 +39,14 @@ import { MapasComponent } from './Views/Mapas/mapas/mapas.component';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatListModule
+ 
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -11,10 +11,40 @@ a:hover{
     transition: all 0.2s ease;
 } */
 
+/* -------- Menu Angular Material ------ */
+.mat-nav-list{
+    padding-top: 0!important;
+}
 
-.nav__menu{
+.button-menu {
+    width: 90%; /* ancho del menu de botones */
+  } 
+
+  .sidenav-container {
+    height: 100%;
+  }
+ 
+
+/* .mat-drawer{
+    background-color: #1f1f1f;
+} */
+
+.nav__menu--color{
     background-color: #1f1f1f;
 }
+.menu__ancho{
+    width: 12rem!important;
+}
+@media (max-width: 570px ) {
+    .menu__ancho{
+        width: 9rem!important;
+        overflow-x: hidden;
+        overflow-y: hidden;
+    }
+    
+}
+
+/* --------  Fin Menu Angular Material ------  */
 
 .boton__nav {
     width: 100%;
