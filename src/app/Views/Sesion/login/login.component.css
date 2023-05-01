@@ -22,10 +22,10 @@ body {
 .navbar {
   background-color: #303030 !important;
   color: #e9e9e9 !important;
-  box-shadow: 0px 16px 84px -9px rgba(0,0,0,0.91);
--webkit-box-shadow: 0px 16px 84px -9px rgba(0,0,0,0.91);
--moz-box-shadow: 0px 16px 84px -9px rgba(0,0,0,0.91);
-  
+  box-shadow: 0px 16px 84px -9px rgba(0, 0, 0, 0.91);
+  -webkit-box-shadow: 0px 16px 84px -9px rgba(0, 0, 0, 0.91);
+  -moz-box-shadow: 0px 16px 84px -9px rgba(0, 0, 0, 0.91);
+
 }
 
 .btn-opciones {
@@ -65,11 +65,10 @@ body {
 /* Color fondo de lo enlaces al pasar sobre el enlace  */
 .nav-item:hover,
 .navbar__botones--activo
-
 /* .nav-link:hover */
-  {
+{
   cursor: pointer;
-  background-color: #b64900 !important;
+  background-color: #464646 !important;
   /*   #1f1f1f*/
   color: #120808 !important;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
@@ -125,9 +124,9 @@ body {
   background: linear-gradient(315deg, #c5c5c5, #eaeaea);
   /* box-shadow: -2px -2px 28px #979797, 2px 2px 5px #d6d6d6; */
   /* box-shadow: -2px -2px 28px #000000, 2px 2px 5px #000000; */
-  box-shadow: 0px 3px 20px -9px rgba(0,0,0,0.91);
-  -webkit-box-shadow: 0px 3px 20px -9px rgba(0,0,0,0.91);
-  -moz-box-shadow: 0px 3px 20px -9px rgba(0,0,0,0.91);
+  box-shadow: 0px 3px 20px -9px rgba(0, 0, 0, 0.91);
+  -webkit-box-shadow: 0px 3px 20px -9px rgba(0, 0, 0, 0.91);
+  -moz-box-shadow: 0px 3px 20px -9px rgba(0, 0, 0, 0.91);
 }
 
 .company__info {
