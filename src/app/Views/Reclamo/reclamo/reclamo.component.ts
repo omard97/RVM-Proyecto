@@ -65,7 +65,7 @@ export class ReclamoComponent implements OnInit {
   ReclamoAmbie: ReclamoAmbiental[] = [];
   Mar: marca[] = [];
   Mod: modelo[] = [];
-  public arregloDetalleReclamo: any;
+  public arregloDetalleReclamo: any; /* se utiliza luego de cambiar de historial a editar reclamo */
 
   validacionTipoReclamo: any;
 
@@ -80,7 +80,7 @@ export class ReclamoComponent implements OnInit {
   /* IDRol: any; */
  /*  IDsesion: any; */
 
-  IDDetalleR: any; /* ID DE LA RUTA DEL NAVEGADOR */
+  IDDetalleR: any; /* ID DE LA RUTA DEL NAVEGADOR - al querer editar el detalle del reclamo */
   idrecambie: number = 0; /* idreclamoambiental */
   ID_Vehiculo: any; /* se usa para saber el id que tiene el auto recien registrado */
   ID_DetReclamo: any; /* para vehiculoXDetalle */
@@ -102,13 +102,20 @@ export class ReclamoComponent implements OnInit {
   constructor(private serviceUsuario: MenuApiService, private service: BackenApiService, private serviceLogin:LoginApiService , private router: Router) { 
 
     this.rutaURL = window.location.pathname.split('/');
+    console.log(this.rutaURL)
     this.usuario.idUsuario = this.rutaURL[2];
+    debugger
+    this.IDDetalleR = this.rutaURL[5]; /* en la posicion 5 esta el detalle del reclamo a actualizar */
     this.getRolUsuario(); /*obtengo todos los datos */
     
 
     this.getListReclamoAmbiental();
     this.getListMarca();
     this.getListModelo();
+    if(this.IDDetalleR!= undefined){
+      this.metodo_VisualEditarReclamo(this.IDDetalleR);
+    }
+   
   }
 
   ngOnInit(): void {
@@ -400,14 +407,14 @@ ambiental */
     ]);
   }
 
-  metodo_VisualEditarReclamo(IDDetalle: any) {
+  metodo_VisualEditarReclamo(idDetalleReclamo:number) {
     
     /* Este metodo se utiliza para controlar lo que se quiere ver cuando se desea editar un reclamo */
-    if (this.ruta[5] == 'historial' && IDDetalle != undefined) {
+    if (this.rutaURL[3] == 'historial' && idDetalleReclamo != undefined) {
       this.banderaEdicionReclamo = true;
 
       /* Metodo en el cual se usa para traer todos los datos del reclamo a actualizar */
-      this.service.getDetalleReclamoParaActualizar(IDDetalle).subscribe(
+      this.service.getDetalleReclamoParaActualizar(idDetalleReclamo).subscribe(
         (info) => {
 
           /* Acá pregunto si es ambiental o vial, si es ambiental sigo lo comun si es vial traigo los datos del auto */
