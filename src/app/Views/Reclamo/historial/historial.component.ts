@@ -185,10 +185,11 @@ export class HistorialComponent implements OnInit {
   }
 
   /* Funcion para ir de la pantalla historial hacia el reclamo y editarlo */
-  editarReclamo(idDetalle: any) {
+  editarReclamo(idDetalleReclamo: any) {
+    debugger
     console.clear();
 
-    this.router.navigate([
+   /*  this.router.navigate([
       'main-nav',
       this.usuario.idUsuario,
       this.usuario.idRol,
@@ -196,7 +197,8 @@ export class HistorialComponent implements OnInit {
       'historial',
       'reclamos',
       idDetalle,
-    ]);
+    ]); */
+    this.router.navigate(['menu',this.usuario.idUsuario,'historial','reclamo',idDetalleReclamo]);
   }
 
   btnBuscarReclamosFiltrados() {
