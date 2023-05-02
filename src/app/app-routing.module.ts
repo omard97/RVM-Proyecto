@@ -10,21 +10,27 @@ import { ReclamoComponent } from './Views/Reclamo/reclamo/reclamo.component';
 import { HistorialComponent } from './Views/Reclamo/historial/historial.component';
 
 const routes: Routes = [
-  {path: '',component:HomeComponent},
-  {path: 'login',component:LoginComponent},
-  {path: 'registro', component:RegistroComponent},
+  { path: '', component: HomeComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'registro', component: RegistroComponent },
 
   /*estando en el meu luego de iniciar sesion  */
-  {path: 'menu/:id', component:MenuComponent,
+  {
+    path: 'menu/:id', component: MenuComponent,
     children: [
-      {path: 'perfil',component:PerfilComponent},
-      {path: 'dashboard',component:DashboardComponent},
-      {path: 'reclamo',component:ReclamoComponent},
-      {path: 'historial',component:HistorialComponent},
-      {path: 'mapa',component:HistorialComponent},
-    ] 
-  }
-  
+      { path: 'perfil', component: PerfilComponent },
+      { path: 'dashboard', component: DashboardComponent },
+      { path: 'reclamo', component: ReclamoComponent },
+      { path: 'historial', component: HistorialComponent },
+      { path: 'mapa', component: HistorialComponent },
+    ]
+  },
+
+  {path: 'menu/:id/historial', component: MenuComponent,
+    children: [
+      { path: 'reclamo/:id', component: ReclamoComponent }]
+  },
+
 ];
 
 @NgModule({
