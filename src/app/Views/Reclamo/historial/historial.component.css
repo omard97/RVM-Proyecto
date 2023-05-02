@@ -137,3 +137,7 @@ img {
     /* padre */
     margin-top: 1rem;
 }
+
+.card__reclamo{
+    height: 40rem;
+}
