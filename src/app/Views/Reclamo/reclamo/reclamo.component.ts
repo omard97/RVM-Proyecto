@@ -401,9 +401,7 @@ ambiental */
     this.banderaEdicionReclamo = false;
     delete this.arregloDetalleReclamo;
     
-    this.router.navigate([
-      'menu',
-      this.IDUsuario,
+    this.router.navigate(['menu',this.usuario.idUsuario,'historial'
     ]);
   }
 
