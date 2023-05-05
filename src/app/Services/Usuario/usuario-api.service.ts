@@ -1,26 +1,21 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { datosperfil } from 'src/app/Model/perfil';
-
+import { putUsuario } from 'src/app/Model/perfil';
 @Injectable({
   providedIn: 'root'
 })
-export class PerfilApiService {
-
+export class UsuarioApiService {
   //cabeceras http
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
-
   constructor(private http: HttpClient) { }
 
-  /*Obtener los datos del usuario segun el ID*/
-  getdatosPerfil(id: any): Observable<datosperfil[]> {
-    console.log(id)
-    //
-    return this.http.get<datosperfil[]>('https://localhost:44363/usuario/' + id);
-  }
 
-  
+  putUsuario(putUsuario: putUsuario):Observable<any>{
+    var objeto = JSON.stringify(putUsuario);
+    debugger
+    return this.http.put('https://localhost:44363/Usuario/'+putUsuario.IDUsuario,objeto,this.httpOptions)
+  }
 }
