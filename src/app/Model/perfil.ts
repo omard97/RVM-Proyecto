@@ -9,3 +9,17 @@ export interface datosperfil {
   nombrePerfil?: string;
   nombreEstado?: string;
 }
+
+export interface putUsuario{
+  IDUsuario?: number;
+  Nombre: string;
+  Apellido: string;
+  DNI: string;
+  Correo: string;
+  Nick: string;
+  Celular: string;
+  Contrasenia:string;
+ 
+  id_Perfil:number;
+  id_Estado:number;
+}
