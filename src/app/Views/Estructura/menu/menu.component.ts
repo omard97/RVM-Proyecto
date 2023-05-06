@@ -191,11 +191,7 @@ export class MenuComponent implements OnInit {
     this.contraseniaCtrl.reset()
     this.nombreUsuarioCtrl.reset()
     debugger
-    delete this.datosPerfil;
+    
     this.getDatosPerfil();
-
-
-
-
   }
 }
