@@ -19,6 +19,14 @@ body {
   background-size: cover;
 
 }
+.contenedor__imagenlogin{
+  width: 10rem;
+}
+.imagen__login{
+  height: 20px;
+  width: 100px;
+  padding-left: 1rem;
+}
 
 /* fondo del navbar */
 .navbar {
