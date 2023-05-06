@@ -28,6 +28,15 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
     -moz-box-shadow: 0px 16px 84px -9px rgba(0, 0, 0, 0.91);
 }
 
+.contenedor__imagenlogin{
+    width: 10rem;
+  }
+  .imagen__login{
+    height: 20px;
+    width: 100px;
+    padding-left: 1rem;
+  }
+
 .btn-opciones {
     margin-right: 1rem;
 }
