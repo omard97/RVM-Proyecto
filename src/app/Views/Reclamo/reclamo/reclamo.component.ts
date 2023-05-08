@@ -497,7 +497,7 @@ ambiental */
       debugger
 
       if (this.estadoReclamoCtrl.value == '') {
-        putID_Estado = this.arregloDetalleReclamo[0].iD_Estado;
+        putID_Estado = this.arregloDetalleReclamo[0].idEstado;
       }
       if (this.estadoReclamoCtrl.value != '') {
         putID_Estado = Number(this.estadoReclamoCtrl.value);
@@ -539,11 +539,11 @@ ambiental */
         ID_Estado: putID_Estado,
       };
 
-      
+      debugger
 
       this.service.putActualizarReclamo(reclamo).subscribe(
         (data) => {
-          
+          debugger
           this.MetodoActualizarDetalleReclamo();
         },
         (error) => {
@@ -608,7 +608,7 @@ ambiental */
         ;
         /*1= reclamo ambiental  */
         if (this.arregloDetalleReclamo[0].idTipoRec == 1) {
-          
+          debugger
           this.ResetearFormulariosActualizacionReclamo();
           this.metodo_VisualEditarReclamo(this.IDDetalleR);
         } else if (this.arregloDetalleReclamo[0].idTipoRec == 2) {
@@ -676,10 +676,7 @@ ambiental */
   }
 
   regresarHistorial() {
-    this.router.navigate([
-      'menu',
-      this.IDUsuario,
-    ]);
+    this.metodoRedireccion();
   }
 
   ResetearFormulariosActualizacionReclamo() {
